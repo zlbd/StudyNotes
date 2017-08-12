@@ -1,0 +1,29 @@
+
+2017/8/12 Configuring beyond compare for git in cygwin on Windows
+
+vi ~/.gitconfig:
+
+[diff]
+    tool = jellybc3
+[difftool]
+    prompt = false
+[difftool "jellybc3"]
+    #use cygpath to transform cygwin path $LOCAL (something like /tmp/U5VvP1_abc) to windows path, because bc3 is a windows software
+    cmd = \"/cygdrive/c/program files/beyond compare 3/bcomp.exe\" \"$(cygpath -w $LOCAL)\" \"$REMOTE\"
+[merge]
+    tool = jellybc3
+[mergetool]
+    prompt = false
+[mergetool "jellybc3"]
+    #trustExitCode = true
+    cmd = \"/cygdrive/c/program files/beyond compare 3/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\" \"$MERGED\"
+
+
+注意：
+1、diff工具的命名，如果用bc3，那么git会采用它内置的对bc3的理解来进行调用，不会调用cmd指定的。
+     Linux上使用内置的比较方便，但cygwin上，$LOCAL不转换为Windows路径，会发现BC只打开了一个文件。
+2、注意引号需要转义，否则git调用时会出错。
+3、根据上面的推理，如果在Linux下配置，应该只需要配置diff.tool为bc3，并且把bc可执行文件路径加入path环境变量即可（也可以配置在difftool.bc3.path中）。merge也是类似。
+
+出处：http://www.cnblogs.com/sinojelly/archive/2011/08/07/2130173.html
+
