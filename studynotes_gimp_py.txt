@@ -4,4 +4,7 @@ cd 'gimp 的根目录'
 cd ./32/lib/python2.7/
 pip install -t . hyperclip
 
+#Get layer offset values in GIMP 2
+https://superuser.com/questions/1194930/get-layer-offset-values-in-gimp-2
+
 
