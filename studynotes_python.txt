@@ -1,3 +1,13 @@
 #在python的 IDLE中执行某个py文件：
-
 execfile('xxx.py')
+
+#根据结合的交集运算，可以求出用户的自定义变量集合，
+#如果在python的idle运行一开始就做个dir的list记录的话
+#set(b).difference(set(a))    等效于集合 b 对集合 a 求差集
+>>> a=dir()
+>>> hi="hello world"
+>>> b=dir()
+>>> set(b).difference(set(a))
+>>> ...
+
+
