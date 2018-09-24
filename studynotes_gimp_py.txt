@@ -1,0 +1,7 @@
+#在 gimp 的 python 环境中安装访问剪贴板的模块：hyperclip
+
+cd 'gimp 的根目录'
+cd ./32/lib/python2.7/
+pip install -t . hyperclip
+
+
