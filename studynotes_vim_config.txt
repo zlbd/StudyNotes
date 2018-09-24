@@ -1,0 +1,22 @@
+# 1. 下载管理vim插件的插件 pathogen 到 autoload 目录
+cd $VIM
+mkdir vimfiles
+cd vimfiles
+mkdir autoload bundle
+git clone https://github.com/tpope/vim-pathogen.git
+cp vim-pathogen/autoload/*.vim .
+
+
+# 2. 在 vimrc 中对 pathogen 进行配置
+vi ~/.vimrc
+""""""" config pathogen """"
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+""""""""""""""""""""""""""""
+
+# 3. 再 bundle 中 git clone 你期待的其他 vim 插件
+cd bundle
+git clone xxx.git
+
+
