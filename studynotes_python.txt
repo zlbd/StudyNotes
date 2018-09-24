@@ -9,5 +9,15 @@ execfile('xxx.py')
 >>> b=dir()
 >>> set(b).difference(set(a))
 >>> ...
-
+#当然最好是抽成一个函数(subtt=>subtraction的缩写)：
+>>> dir0=(dir())
+>>> def watchVars(b,a):
+...     subtt=list(set(b).difference(set(a)))
+...     for i in range(len(subtt)):
+...         print i, subtt[i]
+...         i+=1
+...
+>>> watchVars(dir(), dir0)
+ 0 watchVars
+1 dir0
 
