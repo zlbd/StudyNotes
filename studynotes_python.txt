@@ -22,5 +22,6 @@ execfile('xxx.py')
 1 dir0
 
 ###############
-Q:The following error is prompted when import gtk, "Failed to load module 'canberra-gtk-module'"
-A:sudo apt-get install libcanberra-gtk-module
+Q:how to install pygtk under winodws system?
+A:http://www.cnblogs.com/xdao/archive/2012/10/07/install_pygtk_on_windows.html
+  (make sure your python is 32-bit)
