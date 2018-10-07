@@ -21,3 +21,6 @@ execfile('xxx.py')
  0 watchVars
 1 dir0
 
+###############
+Q:The following error is prompted when import gtk, "Failed to load module 'canberra-gtk-module'"
+A:sudo apt-get install libcanberra-gtk-module
