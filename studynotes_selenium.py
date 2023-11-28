@@ -76,12 +76,10 @@ class DialogAddTagXXX(object):
             """
             Get visible bodies from 'tagXXX' grid.
             """
-            taf_log.info("------Get bodies from tagXXX grid.------")
             # step1:
             # Get locator.
             _grid_tagXXX_locator = self.Dialog_AT_Pane.grid_tagXXX()
             # step2:
             # Get tags browsed.
             grid_bodies = self.GridActor.get_grid_bodies(_grid_tagXXX_locator)
-            taf_log.info("------Get bodies from tagXXX grid. Result: '%s'------" % grid_bodies)
             return grid_bodies
