@@ -2,6 +2,62 @@
 # _*_ coding: utf-8 _*_
 # @Author  : zlbd
 
+switch window
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+wd = webdriver.Chrome()
+wd.implicitly_wait(10)
+
+wd.get('https://cn.bing.com/search?q=%e7%99%be%e5%ba%a6&qs=SC&pq=baidu&sc=10-5&cvid=55131F227A304C3CB96FFFC540CB1431&FORM=QBLH&sp=1&lq=0')
+time.sleep(1)
+# 点击打开新窗口的链接
+link = wd.find_element(By.XPATH, '//*[@id="b_results"]/li[1]/h2/a')
+link.click()
+mainWindow = wd.current_window_handle
+for handle in wd.window_handles:
+    # 先切换到该窗口
+    wd.switch_to.window(handle)
+    # 得到该窗口的标题栏字符串，判断是不是我们要操作的那个窗口
+    if '百度一下' in wd.title:
+        # 如果是，那么这时候WebDriver对象就是对应的该该窗口，正好，跳出循环，
+        break
+
+# wd.title属性是当前窗口的标题栏 文本
+print(wd.title)
+wd.switch_to.window(mainWindow)
+time.sleep(1)
+print(wd.title)
+
+
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+wd = webdriver.Chrome()
+wd.implicitly_wait(10)
+def isAscending(xs):
+    for n in range(len(xs) - 1):
+        if xs[n] > xs[n+1]:
+            return False
+    return True
+wd.get('https://www.uniqlo.cn/c/4221124018.html')
+time.sleep(10)
+# 点击打开新窗口的链接
+element = wd.find_element(By.XPATH,"//*[@style='display: flex;']").click()
+wd.find_element(By.XPATH, "//*[@class='sort-content']/*[3]").click()
+time.sleep(5)
+price = wd.find_elements(By.XPATH,'//*[@id="hmall-container"]/div/div[1]/div[2]/div[1]/div/div/div/div/div[5]/div/div[2]/div/div[1]/div/a/div/span')
+all=[]
+for ele in price:
+    all.append(ele.text)
+print(all)
+assert isAscending(all) is True
+
+
 
 class DialogAddTagXXX(object):
 
